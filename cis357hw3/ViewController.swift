@@ -11,9 +11,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var emailField: UITextField!
     
-    @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var yardsField: UITextField!
+    
+    @IBOutlet weak var metersField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +34,25 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-
-    @IBAction func signupButtonPressed(_ sender: UIButton) {
-        var pwOk = false
-        if let pw = self.passField.text {
-            if pw != "" {
-                pwOk = true
+    @IBAction func calcButtonPressed(_ sender: UIButton) {
+        var yardsOk = false
+        var metersOk = false
+        if let yards = self.yardsField.text, let meters = self.metersField.text  {
+            if yards != "" && meters != "" {
+                yardsOk = true
+                metersOk = true
             }
         }
-        if !pwOk {
-            print("Password cannot be blank")
+        if !yardsOk && !metersOk {
+            print("Please enter length in either yards or meters!")
         }
-        
+    }
+    
+    
+    
+    
+    @IBAction func signupButtonPressed(_ sender: UIButton) {
+        /*
         var emailOk = false
         if let email = self.emailField.text {
             let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
@@ -54,7 +62,9 @@ class ViewController: UIViewController {
         }
         if !emailOk {
             print("Invalid email address")
+ 
         }
+ */
     }
     
 }
