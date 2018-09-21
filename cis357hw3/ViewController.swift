@@ -9,10 +9,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var yardsField: UITextField!
+    
     
     @IBOutlet weak var metersField: UITextField!
     

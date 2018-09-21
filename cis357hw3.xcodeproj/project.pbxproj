@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49AB2831215576EE0010E685 /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AB2830215576EE0010E685 /* DecimalMinusTextField.swift */; };
 		49B3AFC421501EB10026566C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B3AFC321501EB10026566C /* AppDelegate.swift */; };
 		49B3AFC621501EB10026566C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B3AFC521501EB10026566C /* ViewController.swift */; };
 		49B3AFC921501EB10026566C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49B3AFC721501EB10026566C /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49AB2830215576EE0010E685 /* DecimalMinusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalMinusTextField.swift; sourceTree = "<group>"; };
 		49B3AFC021501EB10026566C /* cis357hw3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cis357hw3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B3AFC321501EB10026566C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49B3AFC521501EB10026566C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				49B3AFC321501EB10026566C /* AppDelegate.swift */,
 				49B3AFC521501EB10026566C /* ViewController.swift */,
 				49B3AFC721501EB10026566C /* Main.storyboard */,
+				49AB2830215576EE0010E685 /* DecimalMinusTextField.swift */,
 				49B3AFCA21501EB20026566C /* Assets.xcassets */,
 				49B3AFCC21501EB20026566C /* LaunchScreen.storyboard */,
 				49B3AFCF21501EB20026566C /* Info.plist */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49AB2831215576EE0010E685 /* DecimalMinusTextField.swift in Sources */,
 				49B3AFC621501EB10026566C /* ViewController.swift in Sources */,
 				49B3AFC421501EB10026566C /* AppDelegate.swift in Sources */,
 			);
