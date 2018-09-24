@@ -15,6 +15,8 @@
 		49B3AFCE21501EB20026566C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49B3AFCC21501EB20026566C /* LaunchScreen.storyboard */; };
 		49B3AFD921501EB30026566C /* cis357hw3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B3AFD821501EB30026566C /* cis357hw3Tests.swift */; };
 		49B3AFE421501EB30026566C /* cis357hw3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B3AFE321501EB30026566C /* cis357hw3UITests.swift */; };
+		D4F301C221580ED90009A47E /* UnitsAndModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F301C121580ED90009A47E /* UnitsAndModes.swift */; };
+		D4F301C62158511A0009A47E /* lengthPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F301C52158511A0009A47E /* lengthPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		49B3AFDF21501EB30026566C /* cis357hw3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cis357hw3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B3AFE321501EB30026566C /* cis357hw3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cis357hw3UITests.swift; sourceTree = "<group>"; };
 		49B3AFE521501EB30026566C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4F301C121580ED90009A47E /* UnitsAndModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsAndModes.swift; sourceTree = "<group>"; };
+		D4F301C52158511A0009A47E /* lengthPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lengthPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				49B3AFC321501EB10026566C /* AppDelegate.swift */,
 				49B3AFC521501EB10026566C /* ViewController.swift */,
 				49B3AFC721501EB10026566C /* Main.storyboard */,
+				D4F301C52158511A0009A47E /* lengthPickerViewController.swift */,
+				D4F301C121580ED90009A47E /* UnitsAndModes.swift */,
 				49AB2830215576EE0010E685 /* DecimalMinusTextField.swift */,
 				49B3AFCA21501EB20026566C /* Assets.xcassets */,
 				49B3AFCC21501EB20026566C /* LaunchScreen.storyboard */,
@@ -259,6 +265,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4F301C221580ED90009A47E /* UnitsAndModes.swift in Sources */,
+				D4F301C62158511A0009A47E /* lengthPickerViewController.swift in Sources */,
 				49AB2831215576EE0010E685 /* DecimalMinusTextField.swift in Sources */,
 				49B3AFC621501EB10026566C /* ViewController.swift in Sources */,
 				49B3AFC421501EB10026566C /* AppDelegate.swift in Sources */,
