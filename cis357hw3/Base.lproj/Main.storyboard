@@ -26,7 +26,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter length in Yards" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rpG-qK-1aZ" customClass="DecimalMinusTextField" customModule="cis357hw3">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter input value" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rpG-qK-1aZ" customClass="DecimalMinusTextField" customModule="cis357hw3">
                                 <rect key="frame" x="16" y="82" width="187" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -72,6 +72,9 @@
                                 <rect key="frame" x="153" y="219" width="69" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cvj-g5-Mvf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHH-2L-1tU">
                                 <rect key="frame" x="290" y="219" width="69" height="55"/>
@@ -102,8 +105,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="metersField" destination="SXd-6F-kDa" id="RMH-cN-cem"/>
-                        <outlet property="yardsField" destination="rpG-qK-1aZ" id="y1G-5c-ClN"/>
+                        <outlet property="fromField" destination="rpG-qK-1aZ" id="w2w-DV-loo"/>
+                        <outlet property="toField" destination="SXd-6F-kDa" id="4ul-DE-w5b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -134,7 +137,7 @@
                                 <rect key="frame" x="293" y="113" width="54" height="12"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="12" id="dcO-ya-79t"/>
+                                    <constraint firstAttribute="height" constant="12" id="foZ-JI-tSs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.61558856870000001" green="0.61558856870000001" blue="0.61558856870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -143,7 +146,7 @@
                                     <outletCollection property="gestureRecognizers" destination="0eG-dG-g3e" appends="YES" id="0LM-mm-f28"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Yards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbw-tn-NeK" customClass="toUnitsViewController" customModule="cis357hw3" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbw-tn-NeK" customClass="toUnitsViewController" customModule="cis357hw3" customModuleProvider="target">
                                 <rect key="frame" x="293" y="165" width="43" height="21"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -168,17 +171,16 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ePV-5S-CJD" firstAttribute="leading" secondItem="Ude-8F-c3w" secondAttribute="leadingMargin" id="1Y0-Zj-ACw"/>
-                            <constraint firstItem="i0y-jm-YpM" firstAttribute="trailing" secondItem="MCy-Cz-qxI" secondAttribute="trailing" constant="28" id="B5V-cE-FPH"/>
                             <constraint firstItem="ePV-5S-CJD" firstAttribute="leading" secondItem="GJe-eW-PE6" secondAttribute="leading" id="Dav-YA-OdB"/>
-                            <constraint firstItem="MCy-Cz-qxI" firstAttribute="leading" secondItem="Mbw-tn-NeK" secondAttribute="leading" id="OCP-z3-1Jw"/>
                             <constraint firstAttribute="bottom" secondItem="hz7-sB-Mjk" secondAttribute="bottom" constant="20" symbolic="YES" id="Ynv-WR-pjo"/>
+                            <constraint firstItem="MCy-Cz-qxI" firstAttribute="baseline" secondItem="ePV-5S-CJD" secondAttribute="baseline" id="aGN-UP-5S3"/>
                             <constraint firstItem="hz7-sB-Mjk" firstAttribute="leading" secondItem="Ude-8F-c3w" secondAttribute="leading" id="adH-AQ-0FR"/>
-                            <constraint firstItem="GJe-eW-PE6" firstAttribute="baseline" secondItem="Mbw-tn-NeK" secondAttribute="baseline" id="bKr-XC-WbQ"/>
+                            <constraint firstItem="i0y-jm-YpM" firstAttribute="trailing" secondItem="MCy-Cz-qxI" secondAttribute="trailing" constant="28" id="cxv-96-RM8"/>
+                            <constraint firstItem="Mbw-tn-NeK" firstAttribute="top" secondItem="MCy-Cz-qxI" secondAttribute="bottom" constant="40" id="eon-Ji-hNj"/>
                             <constraint firstItem="GJe-eW-PE6" firstAttribute="top" secondItem="ePV-5S-CJD" secondAttribute="bottom" constant="41" id="geL-H2-2Op"/>
                             <constraint firstAttribute="trailing" secondItem="hz7-sB-Mjk" secondAttribute="trailing" id="hTH-ta-XA7"/>
                             <constraint firstItem="ePV-5S-CJD" firstAttribute="top" secondItem="i0y-jm-YpM" secondAttribute="top" constant="40" id="kDh-7L-mDq"/>
-                            <constraint firstItem="MCy-Cz-qxI" firstAttribute="baseline" secondItem="ePV-5S-CJD" secondAttribute="baseline" id="ofb-Ev-Xhp"/>
-                            <constraint firstItem="Mbw-tn-NeK" firstAttribute="top" secondItem="MCy-Cz-qxI" secondAttribute="bottom" constant="40" id="uc7-t0-N6r"/>
+                            <constraint firstItem="MCy-Cz-qxI" firstAttribute="leading" secondItem="Mbw-tn-NeK" secondAttribute="leading" id="sx7-NM-fh1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i0y-jm-YpM"/>
                     </view>
@@ -188,7 +190,11 @@
                                 <action selector="cancelPressed:" destination="IXx-da-cd0" id="1f6-yN-rOj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="RM5-uF-qmM"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="RM5-uF-qmM">
+                            <connections>
+                                <action selector="savePressed:" destination="IXx-da-cd0" id="beN-uN-mpI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="fromUnits" destination="MCy-Cz-qxI" id="vv0-FC-bz3"/>

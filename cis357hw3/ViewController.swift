@@ -9,20 +9,23 @@
 
 import UIKit
 
-//protocol lengthSelectionViewController{
-//    func indicateSelection(vice: String)
-//
-//}
-
-class ViewController: UIViewController, UITextFieldDelegate{
+class ViewController: UIViewController, UITextFieldDelegate, lengthSelectionViewControllerDelegate{
+    
+    @IBOutlet weak var fromField: DecimalMinusTextField!
+    
+    
+    @IBOutlet weak var toField: DecimalMinusTextField!
+    
+    func indicateSelection(vice: String) {
+        self.fromField.text = vice
+    }
+    
     
 
     
-    @IBOutlet weak var yardsField: DecimalMinusTextField!
-    //UITextField!
     
     
-    @IBOutlet weak var metersField: DecimalMinusTextField!
+
     
    // var pickerdata : [String] = [String]()
  
@@ -50,30 +53,27 @@ class ViewController: UIViewController, UITextFieldDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        if let d = self.delegate {
-//            d.indicateSelection(vice: selection)
-//        }
-//    }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let dest = segue.destination as? ViewController{
-//
-//            dest.delegate = self
-//        }
-//    }
-//    func indicateSelection(vice: String) {
-//        self.fromUnits.text = vice
-//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? lengthPickerViewController{
+            
+                    dest.delegate = self
+        }
+    }
     
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
+    }
+   
+    @IBAction func clearPressed(_ sender: Any) {
+        fromField.text = ""
+        toField.text = ""
     }
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         var yardsOk = false
 
-        if let yards = self.yardsField.text {
+        if let yards = self.fromField.text {
             if yards != "" {
                 yardsOk = true
               
