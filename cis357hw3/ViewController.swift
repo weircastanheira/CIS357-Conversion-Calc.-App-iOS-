@@ -9,23 +9,31 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, lengthSelectionViewControllerDelegate{
+
+
+class ViewController: UIViewController, UITextFieldDelegate,lengthSelectionViewController{
+
     
-    @IBOutlet weak var fromField: DecimalMinusTextField!
     
-    
-    @IBOutlet weak var toField: DecimalMinusTextField!
-    
-    func indicateSelection(vice: String) {
-        self.fromField.text = vice
+    func settingsChanged(fromUnits: String, toUnits: String) {
+        input.text = fromUnits
+        output.text = toUnits
     }
+
+
+    @IBOutlet weak var input: UILabel!
+    @IBOutlet weak var output: UILabel!
+    var mode: String? = CalculatorMode.Length.rawValue
+    var whatMode: Int = 1
     
     
 
     
+    @IBOutlet weak var yardsField: DecimalMinusTextField!
+    //UITextField!
     
     
-
+    @IBOutlet weak var metersField: DecimalMinusTextField!
     
    // var pickerdata : [String] = [String]()
  
@@ -37,6 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate, lengthSelectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
         
 
@@ -53,41 +62,108 @@ class ViewController: UIViewController, UITextFieldDelegate, lengthSelectionView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? lengthPickerViewController{
-            
-                    dest.delegate = self
+        if let dest = segue.destination.childViewControllers[0] as? lengthPickerViewController{
+            dest.whichMode = whatMode
+//            dest.fromUnits = input
+//            dest.toUnits = output]
+            dest.fromStr = input.text!
+            dest.toStr = output.text!
+            dest.delegate = self
         }
     }
+
     
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
     }
-   
-    @IBAction func clearPressed(_ sender: Any) {
-        fromField.text = ""
-        toField.text = ""
-    }
-    
-    @IBAction func calcButtonPressed(_ sender: UIButton) {
-        var yardsOk = false
 
-        if let yards = self.fromField.text {
-            if yards != "" {
-                yardsOk = true
-              
+    @IBAction func calcButtonPressed(_ sender: UIButton) {
+
+        if self.yardsField.text == "" && self.metersField.text != ""{
+        if mode! == CalculatorMode.Length.rawValue{
+            let i = LengthUnit(rawValue: self.input.text!)
+            let j = LengthUnit(rawValue: self.output.text!)
+            let key = LengthConversionKey(toUnits: i!, fromUnits: j!)
+            let jDouble = Double(self.metersField.text!)
+            let calc = jDouble! * lengthConversionTable[key]!
+            self.yardsField.text = String(calc)
+        }
+        else if mode! == CalculatorMode.Volume.rawValue{
+            let i = VolumeUnit(rawValue: self.input.text!)
+            let j = VolumeUnit(rawValue: self.output.text!)
+            let key = VolumeConversionKey(toUnits: i!, fromUnits: j!)
+            let jDouble = Double(self.metersField.text!)
+            let calc = jDouble! * volumeConversionTable[key]!
+            self.yardsField.text = String(calc)
+        }
+        else{
+            print("Error calculating")
+        }
+        }
+        else if self.yardsField.text != "" && self.metersField.text == ""{
+            if mode! == CalculatorMode.Length.rawValue{
+                let i = LengthUnit(rawValue: self.input.text!)
+                let j = LengthUnit(rawValue: self.output.text!)
+                let key = LengthConversionKey(toUnits: j!, fromUnits: i!)
+                let jDouble = Double(self.yardsField.text!)
+                let calc = jDouble! * lengthConversionTable[key]!
+                self.metersField.text = String(calc)
             }
+            else if mode! == CalculatorMode.Volume.rawValue{
+                let i = VolumeUnit(rawValue: self.input.text!)
+                let j = VolumeUnit(rawValue: self.output.text!)
+                let key = VolumeConversionKey(toUnits: j!, fromUnits: i!)
+                let jDouble = Double(self.yardsField.text!)
+                let calc = jDouble! * volumeConversionTable[key]!
+                self.metersField.text = String(calc)
+            }
+            else{
+                print("Error calculating")
+            }
+            
+            }
+        else{
+            print("Enter a value in a field!")
+                self.yardsField.text = ""
+                self.metersField.text = ""
+            }
+        dismissKeyboard()
         }
-        if !yardsOk {
-            print("Please enter a length!")
+    
+    
+    @IBAction func modePressed(_ sender: Any) {
+        if mode! == CalculatorMode.Length.rawValue{
+        whatMode = 2
+        mode = CalculatorMode.Volume.rawValue
+        input.text = VolumeUnit.Gallons.rawValue
+        output.text = VolumeUnit.Liters.rawValue
+    }
+        else if mode! == CalculatorMode.Volume.rawValue{
+        whatMode = 1
+        mode = CalculatorMode.Length.rawValue
+        input.text = LengthUnit.Yards.rawValue
+        output.text = LengthUnit.Meters.rawValue
+            
+                
+        
+        }
+        else{
+            print("Error choosing mode")
         }
         
-        
-        
-        
+        yardsField.text = ""
+        metersField.text = ""
+        dismissKeyboard()
     }
     
+ 
+    
+    
+    @IBAction func clearPressed(_ sender: Any) {
+        metersField.text = ""
+        yardsField.text = ""
+    }
     
 
 }
